@@ -5,8 +5,8 @@
     "FeiShuDocHost": "https://xxx.feishu.cn/"
   },
   "Connection": {
-    "DB": "xx",
-    "Redis": "xx"
+    "DB": "server=127.0.0.1;database=ai_proxy;uid=root;pwd=Smile2025@Tools;SslMode=none",
+    "Redis": "127.0.0.1:6379,password=Smile2025@Tools"
   },
   "AliOss": {
     "Endpoint": "xx",
