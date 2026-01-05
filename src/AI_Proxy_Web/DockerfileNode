@@ -18,7 +18,10 @@ ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 ENV DEBIAN_FRONTEND noninteractive
     
 WORKDIR /App
-RUN sed -i 's@deb.debian.org@mirrors.tuna.tsinghua.edu.cn@g' /etc/apt/sources.list.d/debian.sources
+# 替换为阿里云源，跳过ffmpeg下载（手动装） google-chrome-stable ffmpeg \
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list && \
+    sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
+# RUN sed -i 's@deb.debian.org@mirrors.tuna.tsinghua.edu.cn@g' /etc/apt/sources.list.d/debian
 RUN apt-get -y update && apt-get -y upgrade && apt-get install -y --no-install-recommends wget unzip \
         apt-transport-https \
     	ca-certificates \
@@ -27,7 +30,7 @@ RUN apt-get -y update && apt-get -y upgrade && apt-get install -y --no-install-r
         && curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
     	&& echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list \
     	&& apt-get update && apt-get install -y \
-    	google-chrome-stable ffmpeg \
+    	google-chrome-stable \
     	--no-install-recommends \
     	&& apt-get purge --auto-remove -y curl gnupg \
     	&& rm -rf /var/lib/apt/lists/*
@@ -41,7 +44,11 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends fonts-noto-c
 
 RUN yes | npx playwright@1.51.0 install chromium && npm cache clean --force
 
-COPY fonts/* /usr/share/fonts
+# 先创建目录
+RUN mkdir -p /usr/share/fonts
+# 复制整个目录，而非匹配文件
+# COPY fonts/* /usr/share/fonts
+COPY fonts/ /usr/share/fonts/
 RUN fc-cache -fv
 
 COPY --from=build-env /App/out .
