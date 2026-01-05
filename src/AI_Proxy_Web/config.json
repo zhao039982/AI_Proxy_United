@@ -94,7 +94,7 @@
   "Providers": {
     "OpenRouter": {
       "Api": "OpenAI",
-      "ApiKey": "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",
+      "ApiKey": "",
       "BaseUrl": "https://openrouter.ai/api/v1" 
     },
     "OpenAI": {
