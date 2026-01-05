@@ -40,6 +40,8 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends fonts-noto-c
 
 RUN yes | npx playwright@1.51.0 install chromium && npm cache clean --force
 
+# 先创建目录
+RUN mkdir -p /usr/share/fonts
 COPY fonts/ /usr/share/fonts/
 RUN fc-cache -fv
 
