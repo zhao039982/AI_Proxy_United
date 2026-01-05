@@ -31,10 +31,6 @@
   },
   "Models": {
     "Default": {
-      "Id": 0, "Order": 0, "Provider": "OpenAI", "Type": "问答模型", "ModelName":"gpt-4.1-mini", "DisplayName": "GPT4.1 Mini", "Description": "GPT 4.1 mini, 回复速度快，接口更便宜也更稳定，100W上下文长度，能力强于GPT 4o，速度和价格更有优势。",
-      "MaxTokens": 8000, "CanUseFunction": true, "CanProcessImage": true, "EmbeddingDimensions": 1536, "EmbeddingModelName": "text-embedding-3-large"
-    },
-    "OpenRouter-ChatGPT": {
       "Id": 901, 
       "Order": 901, 
       "Provider": "OpenRouter", 
@@ -44,8 +40,7 @@
       "Description": "OpenRouter 托管的GPT-5.2模型，支持多模态、函数调用", 
       "MaxTokens": 128000, 
       "CanUseFunction": true,
-      "CanProcessImage": true, 
-      "Hidden": false
+      "CanProcessImage": true
     },
     "GPT4o": {
       "Id": 1, "Order": 1, "Provider": "OpenAI", "Type": "问答模型", "ModelName":"gpt-4.1", "DisplayName": "GPT4.1", "Description": "GPT 4.1标准版, 回复速度快，接口更便宜也更稳定，能力强于GPT 4o，速度和价格更有优势。",
@@ -98,7 +93,8 @@
   },
   "Providers": {
     "OpenRouter": {
-      "ApiKey": "",
+      "Api": "OpenAI",
+      "ApiKey": "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",
       "BaseUrl": "https://openrouter.ai/api/v1" 
     },
     "OpenAI": {
