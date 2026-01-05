@@ -17,10 +17,7 @@ ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 ENV DEBIAN_FRONTEND noninteractive
     
 WORKDIR /App
-# 替换为阿里云源，跳过ffmpeg下载（手动装）
-RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
-# RUN sed -i 's@deb.debian.org@mirrors.tuna.tsinghua.edu.cn@g' /etc/apt/sources.list.d/debian
+RUN sed -i 's@deb.debian.org@mirrors.tuna.tsinghua.edu.cn@g' /etc/apt/sources.list.d/debian
 RUN apt-get -y update && apt-get -y upgrade && apt-get install -y --no-install-recommends wget unzip \
         apt-transport-https \
     	ca-certificates \
