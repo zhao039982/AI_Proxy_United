@@ -31,52 +31,12 @@
   },
   "Models": {
     "Default": {
-      "Id": 901, 
-      "Order": 901, 
-      "Provider": "OpenRouter", 
-      "Type": "问答模型", 
-      "ModelName": "openai/gpt-5.2", 
-      "DisplayName": "OpenRouter-GPT-5.2",
-      "Description": "OpenRouter 托管的GPT-5.2模型，支持多模态、函数调用", 
-      "MaxTokens": 128000, 
-      "CanUseFunction": true,
-      "CanProcessImage": true
+      "Id": 901, "Order": 901, "Provider": "OpenRouter", "Type": "问答模型", "ModelName": "openai/gpt-4.1", 
+      "DisplayName": "OpenRouter-GPT","Description": "OpenRouter 托管的GPT模型", "MaxTokens": 128000, "CanUseFunction": true,"CanProcessImage": true
     },
     "GPT4o": {
       "Id": 1, "Order": 1, "Provider": "OpenAI", "Type": "问答模型", "ModelName":"gpt-4.1", "DisplayName": "GPT4.1", "Description": "GPT 4.1标准版, 回复速度快，接口更便宜也更稳定，能力强于GPT 4o，速度和价格更有优势。",
       "MaxTokens": 32000, "CanUseFunction": true, "CanProcessImage": true, "EmbeddingDimensions": 1536, "EmbeddingModelName": "text-embedding-3-large"
-    },
-    "GPT4oSearch": {
-      "Id": 194, "Order": 194, "Provider": "OpenAI", "Type": "搜索模型", "ModelName":"gpt-4o-search-preview", "DisplayName": "GPT4 Search", "Description": "GPT 4o Search 自带网络信息搜索功能，但搜索功能收费。",
-      "MaxTokens": 32000, "CanUseFunction": true, "CanProcessImage": true, "ExtraTools": "web_search_preview", "Hidden": true
-    },
-    "DeerApi_GPT5_Mini": {
-      "Id": 46, "Order": 46, "Provider": "DeerApi_Response", "Type": "问答模型", "ModelName":"gpt-5-mini", "DisplayName": "GPT5 Mini", "Description": "GPT 5 mini DeerApi通道。",
-      "MaxTokens": 32000, "CanUseFunction": true, "CanProcessImage": true, "UseThinkingMode": true, "Hidden": true
-    },
-    "DeerApi_GPT5": {
-      "Id": 47, "Order": 47, "Provider": "DeerApi_Response", "Type": "问答模型", "ModelName":"gpt-5", "DisplayName": "GPT 5", "Description": "GPT 5 标准版 DeerApi通道。",
-      "MaxTokens": 32000, "CanUseFunction": true, "CanProcessImage": true, "UseThinkingMode": true, "Hidden": true
-    },
-    "ClaudeSonet": {
-      "Id": 18, "Order": 3, "Provider": "Claude", "Type": "问答模型", "ModelName":"claude-sonnet-4-20250514", "DisplayName": "Claude 4", "Description": "Claude 4 Sonet是Open AI目前最强劲的竞争对手，代码能力最强，支持图文，200K上下文长度，价格跟GPT4o一样，比较适中。",
-      "MaxTokens": 32000, "CanUseFunction": true, "CanProcessImage": true, "CanProcessFile": true, "ExtraTools": "web_search", "Hidden": true
-    },
-    "ClaudeOpus": {
-      "Id": 7, "Order": 4, "Provider": "Claude", "Type": "问答模型", "ModelName":"claude-opus-4-1-20250805", "DisplayName": "Claude大杯", "Description": "Claude 4.1 Opus大杯是Anthropic最强大的模型，价格比较贵。",
-      "MaxTokens": 32000, "CanUseFunction": true, "CanProcessImage": true, "CanProcessFile": true, "Hidden": true
-    },
-    "ClaudeRPA": {
-      "Id": 330, "Order": 330, "Provider": "Claude", "Type": "辅助模型", "ModelName":"claude-sonnet-4-20250514", "DisplayName": "Claude RPA", "Description": "Claude RPA版可以操作虚拟浏览器和本地文件，通过自动分解操作步骤并控制浏览器一步一步进行点击或输入的方式进行一系列自主操作来完成用户任务，需要有客户端来调用并负责实际完成任务。",
-      "MaxTokens": 4096, "CanUseFunction": true, "CanProcessImage": true, "CanProcessFile": true, "ExtraTools": "computer,text_editor,bash,web_search", "ExtraHeaders": "anthropic-beta:computer-use-2025-01-24", "Hidden": true
-    },
-    "ClaudeEditor": {
-      "Id": 331, "Order": 331, "Provider": "Claude", "Type": "辅助模型", "ModelName":"claude-sonnet-4-20250514", "DisplayName": "Claude Editor", "Description": "Claude Editor版可以操作操作指定的文件，自主查看文件当前内容，并根据需要完成文件的内容编辑指令，需要有客户端来调用并负责实际完成任务。",
-      "MaxTokens": 4096, "CanUseFunction": true, "CanProcessImage": true, "CanProcessFile": true, "ExtraTools": "text_editor", "ExtraHeaders": "anthropic-beta:computer-use-2025-01-24", "Hidden": true
-    },
-    "ClaudeSonetThinking": {
-      "Id": 122, "Order": 122, "Provider": "Claude", "Type": "推理模型", "ModelName":"claude-sonnet-4-20250514", "DisplayName": "Claude Thinking", "Description": "Claude 4 sonet推理版使用带推理能力的Claude模型，适合复杂的编程任务及数理问题。",
-      "MaxTokens": 64000, "CanUseFunction": true, "CanProcessImage": true, "CanProcessFile": true, "ExtraTools": "web_search", "UseThinkingMode": true, "Hidden": true
     },
     "DeepSeekV3": {
       "Id": 13, "Order": 30, "Provider": "DeepSeek", "Type": "问答模型", "ModelName":"deepseek-chat", "DisplayName": "DeepSeek V3", "Description": "DeepSeek V3开源大模型。号称超越了GPT4的开源大模型，中文能力、推理能力、代码能力都很强。",
@@ -84,18 +44,14 @@
     },
     "DeepSeekR1": {
       "Id": 114, "Order": 114, "Provider": "DeepSeek", "Type": "推理模型", "ModelName":"deepseek-reasoner", "DisplayName": "DeepSeek R1", "Description": "DeepSeek R1开源类o1思考大模型。号称超越了o1的推理大模型，不支持图片。",
-      "MaxTokens": 40000, "CanUseFunction": true, "Hidden": true
-    },
-    "TencentSSR": {
-      "Id": 301, "Order": 301, "Provider": "TencentSSR", "Type": "辅助模型", "ModelName":"16k_zh_large", "DisplayName": "腾讯语音转文字", "Description": "腾讯语音转文字",
-      "Hidden": true
+      "MaxTokens": 40000, "CanUseFunction": true
     }
   },
   "Providers": {
     "OpenRouter": {
       "Api": "OpenAI",
-      "ApiKey": "",
-      "BaseUrl": "https://openrouter.ai/api/v1" 
+      "Host": "https://openrouter.ai/api/v1",
+      "Key": ""
     },
     "OpenAI": {
       "Api": "OpenAI",
@@ -103,43 +59,10 @@
       "Key": "",
       "WssHost": "wss://api.openai.com/"
     },
-    "OpenAI_Response": {
-      "Api": "OpenAI_Response",
-      "Inherit": "OpenAI"
-    },
-    "OpenAI_Stream": {
-      "Api": "OpenAI_Stream",
-      "Inherit": "OpenAI"
-    },
-    "DeerApi": {
-      "Api": "OpenAI",
-      "Host": "https://api.deerapi.com/v1/",
-      "Key": ""
-    },
-    "DeerApi_Response": {
-      "Api": "OpenAI_Response",
-      "Inherit": "DeerApi"
-    },
-    "Claude": {
-      "Api": "Claude",
-      "Host": "https://api.anthropic.com/v1/",
-      "Key": "",
-      "ApiVersion": "2023-06-01"
-    },
-    "Google": {
-      "Api": "Google",
-      "Host": "https://generativelanguage.googleapis.com/",
-      "Key": ""
-    },
     "DeepSeek": {
       "Api": "OpenAI",
       "Host": "https://api.deepseek.com/beta/v1/",
       "Key": ""
-    },
-    "DeepDataSpace": {
-      "Api": "DeepDataSpace",
-      "Host": "https://api.deepdataspace.com/",
-      "Key":  ""
     }
   }
 }
