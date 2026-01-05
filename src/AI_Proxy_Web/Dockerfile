@@ -17,7 +17,7 @@ ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 ENV DEBIAN_FRONTEND noninteractive
     
 WORKDIR /App
-RUN sed -i 's@deb.debian.org@mirrors.tuna.tsinghua.edu.cn@g' /etc/apt/sources.list.d/debian
+RUN sed -i 's@deb.debian.org@mirrors.tuna.tsinghua.edu.cn@g' /etc/apt/sources.list.d/debian.sources
 RUN apt-get -y update && apt-get -y upgrade && apt-get install -y --no-install-recommends wget unzip \
         apt-transport-https \
     	ca-certificates \
@@ -40,11 +40,7 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends fonts-noto-c
 
 RUN yes | npx playwright@1.51.0 install chromium && npm cache clean --force
 
-# 先创建目录
-RUN mkdir -p /usr/share/fonts
-# 复制整个目录，而非匹配文件
-# COPY fonts/* /usr/share/fonts/
-COPY fonts/ /usr/share/fonts/
+COPY fonts/* /usr/share/fonts/
 RUN fc-cache -fv
 
 COPY --from=build-env /App/out .
